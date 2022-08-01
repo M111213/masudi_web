@@ -1,0 +1,156 @@
+<html>
+<head>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title></title>
+	</head>
+<body>
+<br>
+<br>
+<center>
+	<form enctype="multipart/form-data" method="POST" action="<?php $_SERVER['PHP_SELF']; ?>">
+    <h3>Registration Form</h3>
+       <br>
+    <table>
+    	<tr>
+    	<td><label for="fname">First Name:</label></td>
+    	<td><input class="mainInput" type="text" id="fname" name="fname" placeholder="Fist Name" required></td>
+    	<td><label for="lname">Last Name:</label></td>
+		<td><input class="mainInput" type="text" id="lname" name="lname" placeholder="Last Name" required></td>
+    	</tr>
+		<tr>
+		<td><label for="date_of_birth">Date of Birth:</label></td>
+		<td><input class="mainInput" type="date" id="date_of_birth" name="date_of_birth" required></td>
+
+		<td><label for="date_of_filling">Date of filling the form:</label></td>
+		<td><input class="mainInput" type="datetime-local" id="date_of_filling" name="date_of_filling" required></td>
+		</tr>
+
+		<tr>
+		</tr>
+		<tr>
+		<td><label for="gender">Gender:</label></td>
+	    </tr>
+		<tr>
+		<td><input type="radio" id="male" name="gender" value="Male"></td>
+			<td><label for="male">Male</label></td>
+		<td><input type="radio" id="female" name="gender" value="Female"></td>
+		<td><label for="female">Female</label></td>	
+		</tr>
+
+		<tr>
+		<td>
+			<label for="region">Region:</label>
+		</td>
+		<td>	
+		<select name="region" id="region" class="mainInput" required onchange="populate(this.id,'district')">
+                                <option value="dar-es-salaam">Dar-es-salaam</option>
+                                <option value="morogoro">Morogoro</option>
+                                <option value="arusha">Arusha</option>
+                                <option value="mwanza">Mwanza</option>
+                                <option value="tanga">Tanga</option>
+                                <option value="mbeya">Mbeya</option>
+                            </select>      
+		</td>
+
+		<td>
+			<label for="district">District:</label>
+		</td>
+		<td>
+			<select name="district" id="district" class="mainInput"></select>
+  		</td>
+	    </tr>
+
+	    <tr>
+		<td><label for="email">Email:</label></td>
+		<td><input class="mainInput" type="email"  id="email" name="email" placeholder="Email" required></td>
+
+		<td><label for="phone">Contact:</i></label></td>
+		<td><input class="mainInput" type="tel"  id="phone" name="phone" required></td>
+		</tr>
+
+		<tr>
+		<td><label for="comment">Comment:</label></td>
+		<td><textarea class="mainInputcomment" id="comment" name="comment" rows="10" cols="42" required>			
+		</textarea></td>
+	    </tr>
+	    <tr>
+	</table>
+	<center>
+		<table>
+			<tr>
+				<td>
+	<button type="submit"
+          name="submit" value="login">Submit</button>
+</td>
+<td></td><td></td>
+<td></td><td></td>
+<td>
+		  <button type="Reset" class="button" 
+          name="submit" value="login">Reset</button>
+		</td>
+<td></td><td></td>
+<td></td><td></td>
+<td>
+		  <div class="button">
+		  	<a href="query form.php">View Details</a>
+		  </div>
+		</td>
+	</tr>
+</table>
+     </center>
+	</form>
+	<?php include "external_php.php"; ?> 
+</center> 
+
+<script>
+            function populate(s1,s2)
+            {
+                var s1 = document.getElementById(s1);
+                var s2 = document.getElementById(s2);
+
+                     
+             s2.innerHTML="";
+
+             if(s1.value=="morogoro")
+             {
+                var optionArray = ['morogoro vijijini|morogoro vijijini','kilosa|Kilosa','kilombero|kilombero','ifakara|ifakara','mvomero|mvomero'];
+             }
+             else if(s1.value=="arusha")
+             {
+                var optionArray = ['karatu|Karatu','arumeru|Arumeru','monduli|Monduli','arusha town|Arusha Town','ngorongoro|Ngorongoro'];
+             }
+
+              else if(s1.value=="mwanza")
+             {
+                var optionArray = ['ilemela|Ilemela','nyamagana|Nyamagana','kwimba|Kwimba','magu|Magu','ukerewe|Ukerewe'];
+             }
+
+             else if(s1.value=="tanga")
+             {
+                var optionArray = ['tanga mjini|Tanga Mjini','muheza|Muheza','handeni|Handeni','lushoto|Lushoto','maramba|Maramba'];
+             }
+
+            else if(s1.value=="mbeya")
+             {
+                var optionArray = ['tukuyu|Tukuyu','mbozi|Mbozi','kyela|Kyela','uyole|Uyole','tunduma|Tunduma'];
+             }
+
+             if(s1.value=="dar-es-salaam")
+             {
+                var optionArray = ['kigamboni|kigamboni','kinondoni|Kinondoni','Temeke|Temeke','Ubungo|Ubungo','Ilala|Ilala'];
+             }
+
+             for(var option in optionArray){
+                var pair = optionArray[option].split("|");
+                var newoption = document.createElement("option");
+
+                newoption.value = pair[0];
+                newoption.innerHTML = pair[1];
+                s2.options.add(newoption);
+             }
+
+            }
+        </script>  
+</body>
+</html>
