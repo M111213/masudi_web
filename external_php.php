@@ -12,7 +12,7 @@
 	$phone=$_POST['phone'];
 	$comment=$_POST['comment'];
 
-	$conn=mysqli_connect('localhost','masudi','4041','registration') or die('Unable to connect');
+	$conn=mysqli_connect('localhost','masudi','mfaume','reg') or die('Unable to connect');
 	$query="INSERT INTO table3(fname,lname,date_of_birth,date_of_filling,gender,region,district,email,phone,comment)
 	 VALUES('$fname','$lname','$date_of_birth','$date_of_filling','$gender','$region','$district','$email','$phone','$comment')";
 	mysqli_query($conn,$query) or die('Unable to query');
